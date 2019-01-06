@@ -1,6 +1,6 @@
 ''' BSE_module '''
 import numpy as np
-from numpy import linalg as LA
+from scipy import linalg as LA
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from const import *
@@ -8,12 +8,11 @@ mpl.use('AGG', warn=False)
 
 IND_MAP = {'1': 1, '4': 2, '5': 3}
 
-K_GRID = k_grid_gen(KNUMB)
-
 def k_grid_gen(k_num):
     '''generate k_grid'''
     return [[float(k_x) / k_num, float(k_y) / k_num] for k_x in range(k_num)
             for k_y in range(k_num)]
+K_GRID = k_grid_gen(KNUMB)
 
 class SingleLayer(object):
     '''Class single layer structure'''
@@ -120,7 +119,7 @@ def bs_matrix_gen(q_in_1d, xab, eigh, eige, eigd):
 
 def bs_solution(hamiltonian):
     '''solve the function, out put all eigein state and eigen function'''
-    eigen_energy, eigen_state = LA.eigh(hamiltonian)
+    eigen_energy, eigen_state, info = LA.lapack.zheev(hamiltonian)
     indx = eigen_energy.argsort()
     eigen_energy = eigen_energy[indx]
     eigen_state = eigen_state[:, indx]

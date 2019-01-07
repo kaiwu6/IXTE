@@ -92,7 +92,6 @@ def dist(_dx, _dy, _n):
 
 def bs_matrix_gen(q_in_1d, xab, eigh, eige, eigd):
     '''generate matrix for each Q of IXs'''
-    print(q_in_1d)
     qa = q_in_1d % KNUMB
     qb = int(q_in_1d / KNUMB)
     dgap = np.min(eige) - np.min(eigh)
@@ -134,7 +133,6 @@ def xband(eigh, eige, eigd, unitary, unitary_t):
     x_ab = [np.dot(unitary_t[kk1], unitary[kk2]) for kk1 in range(NT) for kk2 in range(NT)]
     ham = list(map(lambda x: bs_matrix_gen(x, x_ab, eigh, eige, eigd), range(NT)))
     print('diagonalize done')
-    print(ham)
     ex_results = list(map(bs_solution, ham))
     return ex_results
 
@@ -150,7 +148,7 @@ def fourier_trans(xfun_1):
                 for j in range(KNUMB):
                     x_realspace[k][l] += xband[i][j] * \
                     np.exp((k * i / KNUMB + l * j / KNUMB) * 2 * pi * 1j)
-    print(x_realspace)  # imagine part is zero. good
+    # print(x_realspace)  # imagine part is zero. good
     return x_realspace
 
 class HighSymmetryPlot(object):
@@ -219,14 +217,12 @@ def tight_binding(xeng):
     hopping = []
     for b in range(3):
         for a in range(b + 1):
-                tsum = 0.0
-                for j in range(KNUMB):
-                    for i in range(KNUMB):
-                        ka = i / KNUMB
-                        kb = j / KNUMB
-                        tsum += xeng_2d[i][j] * np.exp((a * ka + b * kb) * 2. * pi * 1j)
-                tsum /= NT
-                hopping.append(tsum.real)
+            tsum = 0.0
+            for j in range(KNUMB):
+                for i in range(KNUMB):
+                    tsum += xeng_2d[i][j] * np.exp((a * i + b * j) * 2. * pi * 1j / KNUMB)
+            tsum /= NT
+            hopping.append(tsum.real)
     return hopping
 
 
@@ -246,7 +242,8 @@ def main():
     # print('ex_min', xengmin)
     ex_eng_1 -= xengmin
     ex_eng_2 -= xengmin
-    print(ex_eng_1, ex_eng_2)
+    # print(ex_eng_1, ex_eng_2)
+    print("step 1: get all band")
 
     # tight-binding parameter for excitons
     hopping = tight_binding(ex_eng_1)

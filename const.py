@@ -1,6 +1,6 @@
 '''Global pnysical and lattica constant for MoS2 model '''
-import numpy as np
 import math
+import numpy as np
 
 HBAR = 1.05e-34     #Planck constant
 EV = 1.6e-19        #electron unit
@@ -10,7 +10,7 @@ A_LAT = 3.16e-10    #a-axis of MoS2
 C_LAT = 12.30e-10   #c-axis of MoS2
 UNIT_CELL = A_LAT ** 2.0 * C_LAT * np.sqrt(3.0) / 2.0
 
-KNUMB = 6
+KNUMB = 24
 NT = KNUMB * KNUMB
 
 pi = math.pi

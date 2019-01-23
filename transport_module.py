@@ -11,35 +11,16 @@ from const import *
 # from functools import reduce
 # from scipy.optimize import curve_fit
 
-cos = np.cos
-sin = np.sin
-sqrt = np.sqrt
-log = np.log
-
-# Global Constants
-PI = math.pi
-UNIT_CELL = A_LAT ** 2 * C_LAT * sqrt(3) / 2.0
-R_TAU = 1.05e-14 * 43.6 * 5.4  # electron*racial
-GS = 4.0
-KAPPA_PH = 19.  # 34.0
-VELOCITY_UNIT = EV * A_LAT / HBAR / (sqrt(3) / 2.0)  # eV is for switch EV to J ?
-TEMP = 0.026  # temperature in EV
-
-KNUMB = 6  # lattice grid
-EVALUATION_POINTS = 4  # for transport calculation
-NT = KNUMB * KNUMB  # 2D grid size
-
 CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU / UNIT_CELL / EV * EV ** 2) / NT / 1.e6
 SEEBECK_UNIT = KB / EV / TEMP * 1.e6
 THERMAL_CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU / UNIT_CELL * KB) / TEMP / NT
 
 
 def generate_k_grid():
-    x = np.linspace(0, 2 * PI, KNUMB)
-    y = np.linspace(0, 2 * PI, KNUMB)
+    x = np.linspace(0, 2 * pi, KNUMB)
+    y = np.linspace(0, 2 * pi, KNUMB)
     kx, ky = np.meshgrid(x, y)
     return [kx, ky]
-
 
 class Exciton(object):  # need to improve to mesh_grid computation
     @staticmethod

@@ -1,18 +1,12 @@
-''' BSE_module '''
-import numpy as np
+''' BSE_module'''
 from scipy import linalg as LA
+import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from const import *
 mpl.use('AGG', warn=False)
 
 IND_MAP = {'1': 1, '4': 2, '5': 3}
-
-def k_grid_gen(k_num):
-    '''generate k_grid'''
-    return [[float(k_x) / k_num, float(k_y) / k_num] for k_x in range(k_num)
-            for k_y in range(k_num)]
-K_GRID = k_grid_gen(KNUMB)
 
 class SingleLayer(object):
     '''Class single layer structure'''
@@ -35,7 +29,7 @@ class SingleLayer(object):
         while True:
             line = f.readline()
             if line:
-                nx, ny, nz, oa, ob, val, placeholder = line.split()
+                nx, ny, nz, oa, ob, val, = line.split()
                 if dist(int(nx), int(ny), 3) and abs(float(val)) > 0.0001 \
                         and int(oa) in [1, 4, 5]:
                     oa = IND_MAP[oa]
@@ -137,6 +131,7 @@ def xband(eigh, eige, eigd, unitary, unitary_t):
     return ex_results
 
 def fourier_trans(xfun_1):
+    '''Fourier transformtion for the wave function'''
     exband = xfun_1[0][0:NT]
     xband = exband.reshape((KNUMB, KNUMB))
     # print('xband', xband)
@@ -151,7 +146,8 @@ def fourier_trans(xfun_1):
     # print(x_realspace)  # imagine part is zero. good
     return x_realspace
 
-class HighSymmetryPlot(object):
+class HighSymmetryPlot():
+    '''HighSymmetryPlot'''
     def plot_line_gen(self):
         plot_line = [i for i in range(int(KNUMB / 2))]  # Gamma to M
         plot_line_2 = list(map(lambda x: 2 * KNUMB * x + (int(KNUMB /2) - x), range(int(KNUMB / 6))))  # M to Kbb
@@ -227,7 +223,7 @@ def tight_binding(xeng):
 
 
 # main program
-def main():
+def part_test():
     '''main'''
     dir_mos2 = '/Users/wk/Dropbox/2015rp/TMDC_Exciton/Tight-binding Model/MoS2/'
     seedname = 'MoS2'
@@ -275,4 +271,4 @@ def main():
     '''
 
 if __name__ == "__main__":
-    main()
+    part_test()

@@ -4,7 +4,7 @@
 @author: wk
 """
 import numpy as np
-from const import *
+from const import * #pi, KNUMB, GS, CONDUCT_UNIT, SEEBECK_UNIT, THERMAL_CONDUCT_UNIT 
 # from numpy import linalg as LA
 # from pylab import pcolor
 # from functools import reduce
@@ -12,12 +12,6 @@ from const import *
 
 cos = np.cos
 sin = np.sin
-
-CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU /
-                UNIT_CELL / EV * EV ** 2) / NT / 1.e6
-SEEBECK_UNIT = KB / EV / TEMP * 1.e6
-THERMAL_CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU / UNIT_CELL * KB) / TEMP / NT
-
 
 def generate_k_grid():
   x = np.linspace(0, 2 * pi, KNUMB)
@@ -57,7 +51,6 @@ class Exciton():  # need to improve to mesh_grid computation
     velocity = sum(map(lambda x, y: x * y, t, v_terms))
     return band, velocity
 
-
 class Statistics():
   @staticmethod
   def bose_(eng_grid, mu, temp):
@@ -77,9 +70,9 @@ def correlation(eng_mu, velocity, d_density):
   l0_grid = velocity * velocity * d_density
   l1_grid = eng_mu * l0_grid
   l2_grid = eng_mu * l1_grid
-  l0 = sum(l0_grid)
-  l1 = sum(l1_grid)
-  l2 = sum(l2_grid)
+  l0 = sum(sum(l0_grid))
+  l1 = sum(sum(l1_grid))
+  l2 = sum(sum(l2_grid))
   return l0, l1, l2
 
 def thermal_result(l0_, l1_, l2_):

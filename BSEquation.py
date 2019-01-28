@@ -205,7 +205,7 @@ class HighSymmetryPlot():
     return ans
 
   def plot_one_band_long(self, a_x, xeng_1, xeng_2):
-    # band plot long
+    '''band plot long'''
     plot_line = self.plot_line_gen_long()
     num_points = len(plot_line)
     ans = 0

@@ -9,9 +9,9 @@ KNUMB = 6
 NT = KNUMB * KNUMB
 
 pi = math.pi
-sin = math.sin
+sin = np.sin
 sqrt = math.sqrt
-log = np.log
+log = math.log
 V = 0.1 / NT
 
 HBAR = 1.05e-34     #Planck constant

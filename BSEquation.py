@@ -5,7 +5,7 @@ calculate IX bands from BS equations:
 1. Load the result from single layer and energy spectrums
 2. Build the BS matrix from interaction and energy spectrums
 3. Diagonalize the BS matrix to get first and second bands
-4. Band plot along high symmetry points. 
+4. Band plot along high symmetry points.
 '''
 import numpy as np
 from scipy import linalg as LA
@@ -75,7 +75,7 @@ class SingleLayer():
       eigh.append(eigs[2].real)
       eige.append(eigs[1].real)
       eigd.append(eigs[0].real)
-      #Eigen function is for the Coulomb interaction 
+      #Eigen function is for the Coulomb interaction
       unitary.append(eigfun)
       unitary_trans.append(np.matrix.getH(eigfun))
     return eigh, eige, eigd, unitary, unitary_trans
@@ -239,7 +239,7 @@ def tight_binding(xeng):
 def compute_ixbands(file_dir, seed_name):
   '''callable function for the final output'''
   layer_band = SingleLayer(file_dir, seed_name)
-  eigh, eige, eigd, unitary, unitary_trans = layer_band.wannier_bands() 
+  eigh, eige, eigd, unitary, unitary_trans = layer_band.wannier_bands()
   ix_results = xband(eigh, eige, eigd, unitary, unitary_trans)
   ix_band_1 = list(map(lambda x: ix_results[x][0], range(NT)))
   ix_band_2 = list(map(lambda x: ix_results[x][2], range(NT)))

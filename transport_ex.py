@@ -26,8 +26,8 @@ def cal_transport(t_1, t_2):
   #t_3 = np.loadtxt(job_dir + '/tbt.dat')
 
   k_grid = generate_k_grid()
-  h_terms = Exciton().cal_hopping_terms(k_grid)
-  v_terms = Exciton().cal_velocity_terms(k_grid)
+  h_terms = Exciton(k_grid).cal_hopping_terms(k_grid)
+  v_terms = Exciton(k_grid).cal_velocity_terms(k_grid)
 
   ex_band_1, ex_velocity_1 = Exciton().cal_band_and_velocity(h_terms, v_terms, t_1)
   ex_band_2, ex_velocity_2 = Exciton().cal_band_and_velocity(h_terms, v_terms, t_2)

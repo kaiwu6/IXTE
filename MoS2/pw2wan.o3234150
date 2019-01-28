@@ -1,0 +1,44 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Rank 0 [Wed Jul  8 17:09:48 2015] [c2-3c2s8n0] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+pw2wannier90.x     0000000003145E51  Unknown               Unknown  Unknown
+pw2wannier90.x     00000000031445A7  Unknown               Unknown  Unknown
+pw2wannier90.x     00000000030F8BD4  Unknown               Unknown  Unknown
+pw2wannier90.x     00000000030F89E6  Unknown               Unknown  Unknown
+pw2wannier90.x     000000000307AC24  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000003081991  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000002DF5EE0  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000002EA4F1B  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000003162B91  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000002EF8322  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000002ECECA3  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000002DC8CD5  Unknown               Unknown  Unknown
+pw2wannier90.x     00000000006C5225  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000000650BFC  Unknown               Unknown  Unknown
+pw2wannier90.x     000000000040B213  Unknown               Unknown  Unknown
+pw2wannier90.x     00000000004064BA  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000000405D8E  Unknown               Unknown  Unknown
+pw2wannier90.x     000000000315C7E1  Unknown               Unknown  Unknown
+pw2wannier90.x     0000000000405C69  Unknown               Unknown  Unknown
+_pmiu_daemon(SIGCHLD): [NID 05152] [c2-3c2s8n0] [Wed Jul  8 17:09:48 2015] PE RANK 0 exit signal Aborted
+[NID 05152] 2015-07-08 17:09:49 Apid 13851576: initiated application termination
+
+ + --------------------------------------------------------------------------
+ +        Job name: pw2wan
+ +          Job Id: 3234150.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 17:08:55 2015
+ +      Start Time: Wed Jul  8 17:09:36 2015
+ + Completion Time: Wed Jul  8 17:09:49 2015
+ +            User: chunjing
+ +        MOM Host: nid01281
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=24,mppwidth=24,walltime=00:10:00
+ +  Used Resources: cput=00:00:00,energy_used=0,mem=0kb,vmem=0kb,walltime=00:00:16
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.pw2wan.sh
+ + --------------------------------------------------------------------------
+

@@ -1,0 +1,20 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+
+ + --------------------------------------------------------------------------
+ +        Job name: pw2wan
+ +          Job Id: 3234159.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 17:11:07 2015
+ +      Start Time: Wed Jul  8 17:11:20 2015
+ + Completion Time: Wed Jul  8 17:15:13 2015
+ +            User: chunjing
+ +        MOM Host: nid01664
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=24,mppwidth=24,walltime=00:10:00
+ +  Used Resources: cput=00:00:01,energy_used=0,mem=11152kb,vmem=95056kb,walltime=00:03:56
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.pw2wan.sh
+ + --------------------------------------------------------------------------
+

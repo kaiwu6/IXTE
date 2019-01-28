@@ -1,0 +1,20 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+
+ + --------------------------------------------------------------------------
+ +        Job name: pwband
+ +          Job Id: 3234103.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 16:53:23 2015
+ +      Start Time: Wed Jul  8 16:53:38 2015
+ + Completion Time: Wed Jul  8 16:54:59 2015
+ +            User: chunjing
+ +        MOM Host: nid00897
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=24,mppwidth=24,walltime=00:30:00
+ +  Used Resources: cput=00:00:01,energy_used=0,mem=11164kb,vmem=95068kb,walltime=00:01:25
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.pwband.sh
+ + --------------------------------------------------------------------------
+

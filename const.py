@@ -5,11 +5,10 @@ import numpy as np
 GS = 4.0
 KAPPA_PH = 19.  # 34.0
 TEMP = 0.026  # temperature in EV
-KNUMB = 24
+KNUMB = 6
 NT = KNUMB * KNUMB
 
 pi = math.pi
-cos = math.cos
 sin = math.sin
 sqrt = math.sqrt
 log = np.log
@@ -25,8 +24,8 @@ UNIT_CELL = A_LAT ** 2.0 * C_LAT * np.sqrt(3.0) / 2.0
 R_TAU = 1.05e-14 * 43.6 * 5.4  # electron*racial
 VELOCITY_UNIT = EV * A_LAT / HBAR / (sqrt(3) / 2.0)  # eV is for switch EV to J ?
 
-# K-Grid for  calculation 
+# K-Grid for calculation
 K_GRID = [[float(k_x) / KNUMB, float(k_y) / KNUMB] for k_x in range(KNUMB)
-            for k_y in range(KNUMB)] 
+          for k_y in range(KNUMB)]
 
-EVALUATION_POINTS = 4  # for transport calculation
+EVALUATION_POINTS = 4  #for transport calculation

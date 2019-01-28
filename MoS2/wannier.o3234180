@@ -1,0 +1,21 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Application 13851703 resources: utime ~2s, stime ~0s, Rss ~8972, inblocks ~21948, outblocks ~47799
+
+ + --------------------------------------------------------------------------
+ +        Job name: wannier
+ +          Job Id: 3234180.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 17:15:46 2015
+ +      Start Time: Wed Jul  8 17:16:13 2015
+ + Completion Time: Wed Jul  8 17:16:31 2015
+ +            User: chunjing
+ +        MOM Host: nid02435
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=1,mppwidth=1,walltime=00:15:00
+ +  Used Resources: cput=00:00:00,energy_used=0,mem=0kb,vmem=0kb,walltime=00:00:19
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.wannier.sh
+ + --------------------------------------------------------------------------
+

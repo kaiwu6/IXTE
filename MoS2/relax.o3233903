@@ -1,0 +1,20 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+
+ + --------------------------------------------------------------------------
+ +        Job name: relax
+ +          Job Id: 3233903.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 16:18:26 2015
+ +      Start Time: Wed Jul  8 16:18:53 2015
+ + Completion Time: Wed Jul  8 16:21:01 2015
+ +            User: chunjing
+ +        MOM Host: nid01282
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=24,mppwidth=24,walltime=00:30:00
+ +  Used Resources: cput=00:00:02,energy_used=0,mem=12220kb,vmem=275548kb,walltime=00:02:11
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.rx.sh
+ + --------------------------------------------------------------------------
+

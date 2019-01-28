@@ -1,0 +1,8 @@
+ &bands
+    prefix  = 'MoS2'
+    outdir = '/scratch2/scratchdirs/chunjing/tmp_espresso/'
+    filband = 'MoS2.qebands.dat'
+    no_overlap = .true.,
+    lsym = .true.,
+    lp = .true.
+ /

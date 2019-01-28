@@ -1,0 +1,20 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+
+ + --------------------------------------------------------------------------
+ +        Job name: nscf
+ +          Job Id: 3234122.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 16:59:07 2015
+ +      Start Time: Wed Jul  8 16:59:45 2015
+ + Completion Time: Wed Jul  8 17:01:15 2015
+ +            User: chunjing
+ +        MOM Host: nid02433
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=24,mppwidth=24,walltime=00:30:00
+ +  Used Resources: cput=00:00:01,energy_used=0,mem=11160kb,vmem=160596kb,walltime=00:01:30
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.nscf.sh
+ + --------------------------------------------------------------------------
+

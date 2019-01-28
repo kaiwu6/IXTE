@@ -1,0 +1,198 @@
+
+     Program PW2WANNIER v.5.1.2 starts on  8Jul2015 at 17:11:29 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on      24 processor cores
+     Number of MPI processes:                24
+     Threads/MPI process:                     1
+     R & G space division:  proc/nbgrp/npool/nimage =      24
+ 
+  Reading nscf_save data
+
+     Reading data from directory:
+     /scratch2/scratchdirs/chunjing/tmp_espresso/MoS2.save
+
+   Info: using nr1, nr2, nr3 values from input
+
+   Info: using nr1s, nr2s, nr3s values from input
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation      =  SLA  PW   PBX  PBC ( 1  4  3  4 0 0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+               file Mo.pbe-spn-kjpaw_psl.0.2.UPF: wavefunction(s)  4D renormalized
+               file S.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  3P renormalized
+ 
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min          47      16      6                12773     2680     708
+     Max          48      17      7                12808     2723     773
+     Sum        1135     397    163               306881    64743   17997
+ 
+
+     negative rho (up, down):  7.969E-04 0.000E+00
+ 
+  Spin CASE ( default = unpolarized )
+ 
+  Wannier mode is: standalone     
+ 
+  -----------------
+  *** Reading nnkp 
+  -----------------
+ 
+  Checking info from wannier.nnkp file
+ 
+  - Real lattice is ok
+  - Reciprocal lattice is ok
+  - K-points are ok
+  - Number of wannier functions is ok (  5)
+  - All guiding functions are given 
+ 
+ Projections:
+    0.000000    0.000000    0.000000  2  1  1    1.000000
+    0.000000    0.000000    0.000000  2  2  1    1.000000
+    0.000000    0.000000    0.000000  2  3  1    1.000000
+    0.000000    0.000000    0.000000  2  4  1    1.000000
+    0.000000    0.000000    0.000000  2  5  1    1.000000
+ 
+  Reading data about k-point neighbours 
+ 
+  All neighbours are found 
+ 
+  Opening pp-files 
+ 
+ 
+  ---------------
+  *** Compute  A 
+  ---------------
+ 
+  AMN: iknum =      225
+       1       2       3       4       5       6       7       8       9      10
+      11      12      13      14      15      16      17      18      19      20
+      21      22      23      24      25      26      27      28      29      30
+      31      32      33      34      35      36      37      38      39      40
+      41      42      43      44      45      46      47      48      49      50
+      51      52      53      54      55      56      57      58      59      60
+      61      62      63      64      65      66      67      68      69      70
+      71      72      73      74      75      76      77      78      79      80
+      81      82      83      84      85      86      87      88      89      90
+      91      92      93      94      95      96      97      98      99     100
+     101     102     103     104     105     106     107     108     109     110
+     111     112     113     114     115     116     117     118     119     120
+     121     122     123     124     125     126     127     128     129     130
+     131     132     133     134     135     136     137     138     139     140
+     141     142     143     144     145     146     147     148     149     150
+     151     152     153     154     155     156     157     158     159     160
+     161     162     163     164     165     166     167     168     169     170
+     171     172     173     174     175     176     177     178     179     180
+     181     182     183     184     185     186     187     188     189     190
+     191     192     193     194     195     196     197     198     199     200
+     201     202     203     204     205     206     207     208     209     210
+     211     212     213     214     215     216     217     218     219     220
+     221     222     223     224     225
+
+  AMN calculated
+ 
+  ---------------
+  *** Compute  M 
+  ---------------
+ 
+  MMN: iknum =      225
+       1       2       3       4       5       6       7       8       9      10
+      11      12      13      14      15      16      17      18      19      20
+      21      22      23      24      25      26      27      28      29      30
+      31      32      33      34      35      36      37      38      39      40
+      41      42      43      44      45      46      47      48      49      50
+      51      52      53      54      55      56      57      58      59      60
+      61      62      63      64      65      66      67      68      69      70
+      71      72      73      74      75      76      77      78      79      80
+      81      82      83      84      85      86      87      88      89      90
+      91      92      93      94      95      96      97      98      99     100
+     101     102     103     104     105     106     107     108     109     110
+     111     112     113     114     115     116     117     118     119     120
+     121     122     123     124     125     126     127     128     129     130
+     131     132     133     134     135     136     137     138     139     140
+     141     142     143     144     145     146     147     148     149     150
+     151     152     153     154     155     156     157     158     159     160
+     161     162     163     164     165     166     167     168     169     170
+     171     172     173     174     175     176     177     178     179     180
+     181     182     183     184     185     186     187     188     189     190
+     191     192     193     194     195     196     197     198     199     200
+     201     202     203     204     205     206     207     208     209     210
+     211     212     213     214     215     216     217     218     219     220
+     221     222     223     224     225
+
+  MMN calculated
+ 
+  -----------------------------------
+  *** Orbital terms are not computed 
+  -----------------------------------
+ 
+  ----------------
+  *** Write bands 
+  ----------------
+ 
+ 
+  --------------------
+  *** Write plot info 
+  --------------------
+ 
+ UNK: iknum =      225
+       1       2       3       4       5       6       7       8       9      10
+      11      12      13      14      15      16      17      18      19      20
+      21      22      23      24      25      26      27      28      29      30
+      31      32      33      34      35      36      37      38      39      40
+      41      42      43      44      45      46      47      48      49      50
+      51      52      53      54      55      56      57      58      59      60
+      61      62      63      64      65      66      67      68      69      70
+      71      72      73      74      75      76      77      78      79      80
+      81      82      83      84      85      86      87      88      89      90
+      91      92      93      94      95      96      97      98      99     100
+     101     102     103     104     105     106     107     108     109     110
+     111     112     113     114     115     116     117     118     119     120
+     121     122     123     124     125     126     127     128     129     130
+     131     132     133     134     135     136     137     138     139     140
+     141     142     143     144     145     146     147     148     149     150
+     151     152     153     154     155     156     157     158     159     160
+     161     162     163     164     165     166     167     168     169     170
+     171     172     173     174     175     176     177     178     179     180
+     181     182     183     184     185     186     187     188     189     190
+     191     192     193     194     195     196     197     198     199     200
+     201     202     203     204     205     206     207     208     209     210
+     211     212     213     214     215     216     217     218     219     220
+     221     222     223     224     225
+
+  UNK written
+ 
+  -----------------------------
+  *** Parity info is not printed 
+  -----------------------------
+ 
+  ------------
+  *** Stop pp 
+  ------------
+ 
+ 
+     init_pw2wan  :      2.88s CPU      5.43s WALL (       1 calls)
+     compute_amn  :     14.34s CPU     15.17s WALL (       1 calls)
+     compute_mmn  :      4.91s CPU      5.50s WALL (       1 calls)
+     write_unk    :      9.02s CPU    202.31s WALL (       1 calls)
+ 
+     PW2WANNIER   :  0m26.23s CPU     3m42.96s WALL
+
+ 
+   This run was terminated on:  17:15:12   8Jul2015            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
+ 
+Application 13851613 resources: utime ~5065s, stime ~85s, Rss ~53712, inblocks ~43810976, outblocks ~5487070

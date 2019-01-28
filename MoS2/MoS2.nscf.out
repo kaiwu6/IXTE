@@ -1,0 +1,201 @@
+
+     Program PWSCF v.5.1.2 starts on  8Jul2015 at 16:59:55 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on      24 processor cores
+     Number of MPI processes:                24
+     Threads/MPI process:                     1
+     R & G space division:  proc/nbgrp/npool/nimage =      24
+     Waiting for input...
+     Reading input from standard input
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) =  40000
+     Max angular momentum in pseudopotentials (lmaxx) =  3
+
+     Atomic positions and unit cell read from directory:
+     /scratch2/scratchdirs/chunjing/tmp_espresso/MoS2.save/
+ 
+               file Mo.pbe-spn-kjpaw_psl.0.2.UPF: wavefunction(s)  4D renormalized
+               file S.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  3P renormalized
+
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     scalapack distributed-memory algorithm (size of sub-group:  3*  3 procs)
+
+ 
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min          47      16      6                12773     2680     708
+     Max          48      17      7                12808     2723     773
+     Sum        1135     397    163               306881    64743   17997
+ 
+
+
+     bravais-lattice index     =            4
+     lattice parameter (alat)  =       6.0350  a.u.
+     unit-cell volume          =    1901.9649 (a.u.)^3
+     number of atoms/cell      =            3
+     number of atomic types    =            2
+     number of electrons       =        26.00
+     number of Kohn-Sham states=           17
+     kinetic-energy cutoff     =      40.0000  Ry
+     charge density cutoff     =     450.0000  Ry
+     Exchange-correlation      =  SLA  PW   PBX  PBC ( 1  4  3  4 0 0)
+
+     celldm(1)=   6.035000  celldm(2)=   0.000000  celldm(3)=   9.991715
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (  -0.500000   0.866025   0.000000 )  
+               a(3) = (   0.000000   0.000000   9.991715 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.577350  0.000000 )  
+               b(2) = (  0.000000  1.154701  0.000000 )  
+               b(3) = (  0.000000  0.000000  0.100083 )  
+
+
+     PseudoPot. # 1 for Mo read from file:
+     /global/homes/c/chunjing/espresso/pseudo/Mo.pbe-spn-kjpaw_psl.0.2.UPF
+     MD5 check sum: 4d55e26c65023fa7f2775461318ed04e
+     Pseudo is Projector augmented-wave + core cor, Zval = 14.0
+     Generated using "atomic" code by A. Dal Corso  v.5.0.2 svn rev. 9415
+     Shape of augmentation charge: PSQ
+     Using radial grid of 1229 points,  6 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+                l(5) =   2
+                l(6) =   2
+     Q(r) pseudized with 0 coefficients 
+
+
+     PseudoPot. # 2 for  S read from file:
+     /global/homes/c/chunjing/espresso/pseudo/S.pbe-n-kjpaw_psl.0.1.UPF
+     MD5 check sum: 4d0aa7498161b95d6b336a838fdb998f
+     Pseudo is Projector augmented-wave + core cor, Zval =  6.0
+     Generated using "atomic" code by A. Dal Corso  v.5.0.2 svn rev. 9415
+     Shape of augmentation charge: PSQ
+     Using radial grid of 1151 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+     Q(r) pseudized with 0 coefficients 
+
+
+     atomic species   valence    mass     pseudopotential
+        Mo            14.00     1.00000     Mo( 1.00)
+        S              6.00     1.00000      S( 1.00)
+
+     12 Sym. Ops. (no inversion) found
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           Mo  tau(   1) = (   0.0000000   0.0000000   0.0000000  )
+         2           S   tau(   2) = (  -0.0000005   0.5773506   9.5021210  )
+         3           S   tau(   3) = (  -0.0000005   0.5773506   0.4895940  )
+
+     number of k points=   225  Marzari-Vanderbilt smearing, width (Ry)=  0.0200
+
+     Number of k-points >= 100: set verbosity='high' to print them.
+
+     Dense  grid:   306881 G-vectors     FFT dimensions: (  45,  45, 432)
+
+     Smooth grid:    64743 G-vectors     FFT dimensions: (  25,  25, 243)
+
+     Largest allocated arrays     est. size (Mb)     dimensions
+        Kohn-Sham Wavefunctions         0.10 Mb     (     398,   17)
+        NL pseudopotentials             0.21 Mb     (     398,   34)
+        Each V/rho on FFT grid          0.56 Mb     (   36450)
+        Each G-vector array             0.10 Mb     (   12777)
+        G-vector shells                 0.04 Mb     (    5851)
+     Largest temporary arrays     est. size (Mb)     dimensions
+        Auxiliary wavefunctions         0.41 Mb     (     398,   68)
+        Each subspace H/S matrix        0.01 Mb     (      22,   22)
+        Each <psi_i|beta_j> matrix      0.01 Mb     (      34,   17)
+
+     The potential is recalculated from file :
+     /scratch2/scratchdirs/chunjing/tmp_espresso/MoS2.save/charge-density.dat
+
+
+     negative rho (up, down):  7.969E-04 0.000E+00
+     Starting wfc are   21 randomized atomic wfcs
+     Checking if some PAW data can be deallocated... 
+
+     Band Structure Calculation
+     Davidson diagonalization with overlap
+
+     ethr =  3.85E-13,  avg # of iterations = 21.5
+
+     total cpu time spent up to now is       68.5 secs
+
+     End of band structure calculation
+
+     Number of k-points >= 100: set verbosity='high' to print the bands.
+
+     the Fermi energy is    -2.7520 ev
+
+     Writing output data file MoS2.save
+ 
+     init_run     :      0.73s CPU      0.87s WALL (       1 calls)
+     electrons    :     62.96s CPU     66.71s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.00s CPU      0.02s WALL (       1 calls)
+     potinit      :      0.15s CPU      0.21s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :     62.96s CPU     66.70s WALL (       1 calls)
+     v_of_rho     :      0.02s CPU      0.03s WALL (       1 calls)
+     newd         :      0.05s CPU      0.05s WALL (       1 calls)
+
+     Called by c_bands:
+     init_us_2    :      0.05s CPU      0.04s WALL (     225 calls)
+     cegterg      :     44.93s CPU     45.57s WALL (     361 calls)
+
+     Called by *egterg:
+     h_psi        :     26.27s CPU     26.67s WALL (    5433 calls)
+     s_psi        :      0.55s CPU      0.65s WALL (    5433 calls)
+     g_psi        :      0.15s CPU      0.19s WALL (    4847 calls)
+     cdiaghg      :     12.40s CPU     12.65s WALL (    5072 calls)
+
+     Called by h_psi:
+     add_vuspsi   :      0.64s CPU      0.69s WALL (    5433 calls)
+
+     General routines
+     calbec       :      1.03s CPU      1.02s WALL (    5433 calls)
+     fft          :      0.03s CPU      0.02s WALL (      13 calls)
+     ffts         :      0.00s CPU      0.00s WALL (       1 calls)
+     fftw         :     20.55s CPU     20.93s WALL (  151440 calls)
+     interpolate  :      0.00s CPU      0.00s WALL (       1 calls)
+     davcio       :      0.18s CPU      2.56s WALL (     225 calls)
+ 
+     Parallel routines
+     fft_scatter  :     10.07s CPU     10.18s WALL (  151454 calls)
+
+     PAW routines
+     PAW_pot      :      0.06s CPU      0.06s WALL (       1 calls)
+ 
+     PWSCF        :  1m 4.76s CPU     1m16.52s WALL
+
+ 
+   This run was terminated on:  17: 1:12   8Jul2015            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
+Application 13851428 resources: utime ~1746s, stime ~30s, Rss ~44968, inblocks ~393847, outblocks ~4518891

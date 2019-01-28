@@ -1,0 +1,46 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Rank 0 [Wed Jul  8 14:25:35 2015] [c5-2c1s7n3] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+pw.x               00000000033E5601  Unknown               Unknown  Unknown
+pw.x               00000000033E3D57  Unknown               Unknown  Unknown
+pw.x               0000000003396084  Unknown               Unknown  Unknown
+pw.x               0000000003395E96  Unknown               Unknown  Unknown
+pw.x               00000000033152A4  Unknown               Unknown  Unknown
+pw.x               000000000331C011  Unknown               Unknown  Unknown
+pw.x               0000000003089730  Unknown               Unknown  Unknown
+pw.x               000000000313F56B  Unknown               Unknown  Unknown
+pw.x               0000000003402341  Unknown               Unknown  Unknown
+pw.x               0000000003192972  Unknown               Unknown  Unknown
+pw.x               00000000031692F3  Unknown               Unknown  Unknown
+pw.x               000000000305C525  Unknown               Unknown  Unknown
+pw.x               000000000082DC45  Unknown               Unknown  Unknown
+pw.x               00000000007B961C  Unknown               Unknown  Unknown
+pw.x               000000000041F3F9  Unknown               Unknown  Unknown
+pw.x               000000000050C73F  Unknown               Unknown  Unknown
+pw.x               0000000000406068  Unknown               Unknown  Unknown
+pw.x               0000000000405E23  Unknown               Unknown  Unknown
+pw.x               0000000000405D8E  Unknown               Unknown  Unknown
+pw.x               00000000033FBF91  Unknown               Unknown  Unknown
+pw.x               0000000000405C69  Unknown               Unknown  Unknown
+_pmiu_daemon(SIGCHLD): [NID 04127] [c5-2c1s7n3] [Wed Jul  8 14:25:35 2015] PE RANK 0 exit signal Aborted
+[NID 04127] 2015-07-08 14:25:36 Apid 13843799: initiated application termination
+
+ + --------------------------------------------------------------------------
+ +        Job name: relax
+ +          Job Id: 3233164.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 14:12:02 2015
+ +      Start Time: Wed Jul  8 14:12:30 2015
+ + Completion Time: Wed Jul  8 14:25:37 2015
+ +            User: chunjing
+ +        MOM Host: nid00899
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=24,mppwidth=24,walltime=00:30:00
+ +  Used Resources: cput=00:00:04,energy_used=0,mem=12224kb,vmem=160612kb,walltime=00:13:09
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.rx.sh
+ + --------------------------------------------------------------------------
+

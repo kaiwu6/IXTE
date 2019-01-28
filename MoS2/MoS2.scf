@@ -1,0 +1,23 @@
+ &control
+    calculation = 'scf',
+    restart_mode='from_scratch',
+    prefix='MoS2',
+    outdir='/scratch2/scratchdirs/chunjing/tmp_espresso/'
+ /
+ &system
+    ibrav=  4, celldm(1)= 6.035000, celldm(3)= 9.991715,
+    nat=  3, ntyp= 2, ecutwfc = 40.0, ecutrho = 450,
+    occupations='smearing', smearing='cold', degauss=0.02
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+ATOMIC_SPECIES
+Mo 1.0  Mo.pbe-spn-kjpaw_psl.0.2.UPF
+S  1.0  S.pbe-n-kjpaw_psl.0.1.UPF
+ATOMIC_POSITIONS {crystal}
+Mo       0.000000000   0.000000000   0.000000000
+S        0.333333000   0.666667000   0.951000000
+S        0.333333000   0.666667000   0.049000000
+K_POINTS {automatic}
+15 15  1  0 0 0

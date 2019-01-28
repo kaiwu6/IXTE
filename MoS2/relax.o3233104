@@ -1,0 +1,98 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Rank 0 [Wed Jul  8 14:04:44 2015] [c5-2c2s13n3] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+pw.x               00000000033E5601  Unknown               Unknown  Unknown
+pw.x               00000000033E3D57  Unknown               Unknown  Unknown
+pw.x               0000000003396084  Unknown               Unknown  Unknown
+pw.x               0000000003395E96  Unknown               Unknown  Unknown
+pw.x               00000000033152A4  Unknown               Unknown  Unknown
+pw.x               000000000331C011  Unknown               Unknown  Unknown
+pw.x               0000000003089730  Unknown               Unknown  Unknown
+pw.x               000000000313F56B  Unknown               Unknown  Unknown
+pw.x               0000000003402341  Unknown               Unknown  Unknown
+pw.x               0000000003192972  Unknown               Unknown  Unknown
+pw.x               00000000031692F3  Unknown               Unknown  Unknown
+pw.x               000000000305C525  Unknown               Unknown  Unknown
+pw.x               000000000082DC45  Unknown               Unknown  Unknown
+pw.x               00000000007B961C  Unknown               Unknown  Unknown
+pw.x               000000000041F3F9  Unknown               Unknown  Unknown
+pw.x               000000000050C73F  Unknown               Unknown  Unknown
+pw.x               0000000000406068  Unknown               Unknown  Unknown
+pw.x               0000000000405E23  Unknown               Unknown  Unknown
+pw.x               0000000000405D8E  Unknown               Unknown  Unknown
+pw.x               00000000033FBF91  Unknown               Unknown  Unknown
+pw.x               0000000000405C69  Unknown               Unknown  Unknown
+_pmiu_daemon(SIGCHLD): [NID 04215] [c5-2c2s13n3] [Wed Jul  8 14:04:44 2015] PE RANK 0 exit signal Aborted
+[NID 04215] 2015-07-08 14:04:45 Apid 13842897: initiated application termination
+Rank 0 [Wed Jul  8 14:07:55 2015] [c5-2c2s13n3] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+pw.x               00000000033E5601  Unknown               Unknown  Unknown
+pw.x               00000000033E3D57  Unknown               Unknown  Unknown
+pw.x               0000000003396084  Unknown               Unknown  Unknown
+pw.x               0000000003395E96  Unknown               Unknown  Unknown
+pw.x               00000000033152A4  Unknown               Unknown  Unknown
+pw.x               000000000331C011  Unknown               Unknown  Unknown
+pw.x               0000000003089730  Unknown               Unknown  Unknown
+pw.x               000000000313F56B  Unknown               Unknown  Unknown
+pw.x               0000000003402341  Unknown               Unknown  Unknown
+pw.x               0000000003192972  Unknown               Unknown  Unknown
+pw.x               00000000031692F3  Unknown               Unknown  Unknown
+pw.x               000000000305C525  Unknown               Unknown  Unknown
+pw.x               000000000082DC45  Unknown               Unknown  Unknown
+pw.x               00000000007B961C  Unknown               Unknown  Unknown
+pw.x               000000000041F3F9  Unknown               Unknown  Unknown
+pw.x               000000000050C73F  Unknown               Unknown  Unknown
+pw.x               0000000000406068  Unknown               Unknown  Unknown
+pw.x               0000000000405E23  Unknown               Unknown  Unknown
+pw.x               0000000000405D8E  Unknown               Unknown  Unknown
+pw.x               00000000033FBF91  Unknown               Unknown  Unknown
+pw.x               0000000000405C69  Unknown               Unknown  Unknown
+_pmiu_daemon(SIGCHLD): [NID 04215] [c5-2c2s13n3] [Wed Jul  8 14:07:55 2015] PE RANK 0 exit signal Aborted
+[NID 04215] 2015-07-08 14:07:56 Apid 13843044: initiated application termination
+Rank 0 [Wed Jul  8 14:10:47 2015] [c5-2c2s13n3] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+pw.x               00000000033E5601  Unknown               Unknown  Unknown
+pw.x               00000000033E3D57  Unknown               Unknown  Unknown
+pw.x               0000000003396084  Unknown               Unknown  Unknown
+pw.x               0000000003395E96  Unknown               Unknown  Unknown
+pw.x               00000000033152A4  Unknown               Unknown  Unknown
+pw.x               000000000331C011  Unknown               Unknown  Unknown
+pw.x               0000000003089730  Unknown               Unknown  Unknown
+pw.x               000000000313F56B  Unknown               Unknown  Unknown
+pw.x               0000000003402341  Unknown               Unknown  Unknown
+pw.x               0000000003192972  Unknown               Unknown  Unknown
+pw.x               00000000031692F3  Unknown               Unknown  Unknown
+pw.x               000000000305C525  Unknown               Unknown  Unknown
+pw.x               000000000082DC45  Unknown               Unknown  Unknown
+pw.x               00000000007B961C  Unknown               Unknown  Unknown
+pw.x               000000000041F3F9  Unknown               Unknown  Unknown
+pw.x               000000000050C73F  Unknown               Unknown  Unknown
+pw.x               0000000000406068  Unknown               Unknown  Unknown
+pw.x               0000000000405E23  Unknown               Unknown  Unknown
+pw.x               0000000000405D8E  Unknown               Unknown  Unknown
+pw.x               00000000033FBF91  Unknown               Unknown  Unknown
+pw.x               0000000000405C69  Unknown               Unknown  Unknown
+_pmiu_daemon(SIGCHLD): [NID 04215] [c5-2c2s13n3] [Wed Jul  8 14:10:47 2015] PE RANK 0 exit signal Aborted
+[NID 04215] 2015-07-08 14:10:47 Apid 13843147: initiated application termination
+
+ + --------------------------------------------------------------------------
+ +        Job name: relax
+ +          Job Id: 3233104.edique02
+ +          System: edison
+ +     Queued Time: Wed Jul  8 13:59:24 2015
+ +      Start Time: Wed Jul  8 13:59:52 2015
+ + Completion Time: Wed Jul  8 14:10:48 2015
+ +            User: chunjing
+ +        MOM Host: nid02049
+ +           Queue: debug
+ +  Req. Resources: mppnodect=1,mppnppn=24,mppwidth=24,walltime=00:30:00
+ +  Used Resources: cput=00:00:09,energy_used=0,mem=41840kb,vmem=275680kb,walltime=00:07:43
+ +     Acct String: m772
+ +   PBS_O_WORKDIR: /global/u1/c/chunjing/espresso/TMDC/MoS2
+ +     Submit Args: qe.rx.sh
+ + --------------------------------------------------------------------------
+

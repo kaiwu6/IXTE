@@ -5,33 +5,40 @@ import matplotlib
 import matplotlib.pyplot as plt
 import BSEquation as BSE
 from tight_binding import band_fitting
-from transport_module import generate_k_grid, Exciton, Statistics, correlation
+from transport_module import EnergyVelocity, Statistics, correlation
 from transport_module import thermal_result
-from const import EVALUATION_POINTS, TEMP, NT
+from const import pi, KNUMB, EVALUATION_POINTS, TEMP, NT
 matplotlib.use('TkAgg')
+
+def generate_k_grid():
+  '''Generate the meshgrid'''
+  lines = np.linspace(0, 2 * pi, KNUMB) 
+  #not necessary to be KNUMB
+  k_x, k_y = np.meshgrid(lines, lines)
+  return [k_x, k_y]
 
 def main():
   ''' main program: calculate the transportation'''
   print('link start')
   dir_mos2 = '/Users/wk/Dropbox/2015rp/TMDC_Exciton/Tight-binding Model/MoS2/'
   seedname = 'MoS2'
-  # compute IX bands
   # todo: improve for the folder to dump the results.
   # question: where is the best place to output the plot?
   ix_band_1, ix_band_2 = BSE.compute_ixbands(dir_mos2, seedname)
   t_1 = band_fitting(ix_band_1)
   t_2 = band_fitting(ix_band_2)
-  
-  k_grid = generate_k_grid()
-  h_terms = Exciton().cal_hopping_terms(k_grid)
-  v_terms = Exciton().cal_velocity_terms(k_grid)
+  np.savetxt("t_1.dat", t_1)
+  np.savetxt("t_2.dat", t_2)
 
-  ex_band_1, ex_velocity_1 = Exciton.cal_band_and_velocity(h_terms, v_terms, t_1)
-  ex_band_2, ex_velocity_2 = Exciton.cal_band_and_velocity(h_terms, v_terms, t_2)
+  k_grid = generate_k_grid()
+  band_1 = EnergyVelocity(k_grid, t_1)
+  band_2 = EnergyVelocity(k_grid, t_2)
+  ex_band_1, ex_velocity_1 = band_1.get_results()
+  ex_band_2, ex_velocity_2 = band_2.get_results()
   print(ex_band_1.shape)
 # Prepare evaluation points for the thermal coefficient:
-  fugacity = list(map(lambda x: 1.0 / (1.0 + x), range(EVALUATION_POINTS)))
-  mu_points = list(map(lambda x: 10 * TEMP * np.log(x) - 0.7, fugacity))  # -np.log(fugacity)*temp
+  fugacity = list(map(lambda x: 1.0 * (1.0 + x) / 100, range(EVALUATION_POINTS)))
+  mu_points = list(map(lambda x: TEMP * np.log(x), fugacity))  # -np.log(fugacity)*temp
   print('mu_points:', mu_points)
   ex_L0 = []
   ex_L1 = []

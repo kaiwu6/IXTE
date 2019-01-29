@@ -134,6 +134,7 @@ def xband(eigh, eige, eigd, unitary, unitary_t):
   ex_results = list(map(bs_solution, ham))
   return ex_results
 
+
 def fourier_trans(xfun_1):
   '''Fourier transformtion for the wave function'''
   exband = xfun_1[0][0:NT]
@@ -152,7 +153,6 @@ def fourier_trans(xfun_1):
 
 class HighSymmetryPlot():
   '''HighSymmetryPlot'''
-
   def plot_line_gen(self):
     '''plot line'''
     plot_line = [i for i in range(int(KNUMB / 2))]  # Gamma to M
@@ -243,7 +243,13 @@ def compute_ixbands(file_dir, seed_name):
   ix_results = xband(eigh, eige, eigd, unitary, unitary_trans)
   ix_band_1 = list(map(lambda x: ix_results[x][0], range(NT)))
   ix_band_2 = list(map(lambda x: ix_results[x][2], range(NT)))
-  print("band calculation completed")
+  ground_state = np.amin([ix_band_1, ix_band_2])
+  #print(ground_state)
+  #print(np.amin(ix_band_1))
+  #print(np.amin(ix_band_2))
+  ix_band_1 -= ground_state
+  ix_band_2 -= ground_state
+  print('band calulation completed')
   return ix_band_1, ix_band_2
 
 # main program
@@ -268,16 +274,16 @@ def main():
   # tight-binding parameter for excitons
   hopping = tight_binding(ex_eng_1)
   fo1 = open("t1.dat", "w")
-  for i in range(len(hopping)):
-    print(hopping[i], file=fo1)
+  for hop in hopping:
+    print(hop, file=fo1)
   fo1.close()
   print('step2')
 
   # tight-binding parameter for exciton2
   hopping = tight_binding(ex_eng_2)
   fo2 = open("t2.dat", "w")
-  for i in range(len(hopping)):
-    print(hopping[i], file=fo2)
+  for hop in hopping:
+    print(hop, file=fo2)
   fo2.close()
 
   print('start plot')

@@ -38,10 +38,9 @@ def band_fitting(data_source):
   else:
     eng_1d = data_source
   #eng_2d = eng_1d.reshape(KNUMB, KNUMB)
-  weight = data_source
+  weight = data_source + 1e-5
   popt, _ = curve_fit(band_expansion, klistT, eng_1d,
                       p0=np.zeros(5), sigma=weight)
-  np.savetxt('tbt.dat', popt)
   return popt
 
 '''

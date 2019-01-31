@@ -249,11 +249,11 @@ def compute_ixbands(file_dir, seed_name):
   #print(np.amin(ix_band_2))
   ix_band_1 -= ground_state
   ix_band_2 -= ground_state
-  print('band calulation completed')
+  print('band calulation completed: ground state energy = 0')
   return ix_band_1, ix_band_2
 
 # main program
-def main():
+def unit_test():
   '''main'''
   dir_mos2 = '/Users/wk/Dropbox/2015rp/TMDC_Exciton/Tight-binding Model/MoS2/'
   seedname = 'MoS2'
@@ -295,4 +295,4 @@ def main():
   print('end plot')
 
 if __name__ == "__main__":
-  main()
+  unit_test()

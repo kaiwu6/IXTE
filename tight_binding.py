@@ -16,18 +16,19 @@ cos = np.cos
 def band_expansion(k, *t):
   '''hopping terms'''
   x, y = k
-  f_test = t[0]+2.0*t[1]*(cos(2.0*pi*x)+cos(2.0*pi*y)+cos(2.0*pi*(x+y)))\
-    + 2.0*t[2]*(cos(2.0*pi*2.0*x)+cos(2.0*pi*2.0*y)+cos(2.0*pi*2.0*(x+y)))\
-    + 2.0*t[3]*(cos(2.0*pi*(x+2.0*y))+cos(2.0*pi*(2.0*x+y))+cos(2.0*pi*(x-y))) \
-    + 2.0*t[4]*(cos(2.0*pi*(2.0*x+4.0*y))
-                + cos(2.0*pi*(2.0*y-4.0*(x+y)))+cos(2.0*pi*(-2.0*(x+y)+4.0*x)))
+  f_test = t[0] \
+    + 2.0*t[1]*(cos(x)+cos(y)+cos(x+y))\
+    + 2.0*t[2]*(cos(2.0*x)+cos(2.0*y)+cos(2.0*(x+y)))\
+    + 2.0*t[3]*(cos((x+2.0*y))+cos((2.0*x+y))+cos((x-y))) \
+    + 2.0*t[4]*(cos(2.0*(x+2.0*y))
+                + cos(2.0*(y-2.0*(x+y)))+cos(2.0*(-(x+y)+2.0*x)))
   return f_test
 
 # def band_terms(k_points):
 k_list = []
 for j in range(KNUMB):
   for i in range(KNUMB):
-    k_list.append([float(i)/KNUMB, float(j)/KNUMB])
+    k_list.append([2.0 * pi * float(i)/KNUMB, 2.0 * pi * float(j)/KNUMB])
 klistT = np.transpose(k_list)
 
 def band_fitting(data_source):

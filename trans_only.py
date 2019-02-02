@@ -1,6 +1,6 @@
 '''transport only'''
 import numpy as np
-from transport_module import TightBindingModel, Statistics, correlation
+from transport_module import TightBindingModel, Get_Stats(), correlation
 from transport_module import thermal_result
 from const import pi, NT_TRANS, KNUMB_TRANS, TEMP
 import matplotlib
@@ -42,8 +42,8 @@ def main():
   mu_points = prepare_mu_points(EVALUATION_POINTS)
   for mu_ in mu_points:
     print("mu: ", mu_)
-    ix_n_1, ix_dn_1 = Statistics.bose_(ix_band_1, mu_, TEMP)
-    ix_n_2, ix_dn_2 = Statistics.bose_(ix_band_2, mu_, TEMP)
+    ix_n_1, ix_dn_1 = GetStats().bose_(ix_band_1, mu_, TEMP)
+    ix_n_2, ix_dn_2 = GetStats().bose_(ix_band_2, mu_, TEMP)
     ix_density = (ix_n_1.sum() + ix_n_2.sum()) / NT_TRANS
     print("density: ", ix_density)
     eng_mu_1 = ix_band_1 - mu_

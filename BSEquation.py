@@ -11,7 +11,7 @@ import numpy as np
 from scipy import linalg as LA
 #import matplotlib as mpl
 import matplotlib.pyplot as plt
-from const import pi, KNUMB, NT, K_GRID, V
+from const import pi, KNUMB, NT, K_ARRAY, V
 #mpl.use('AGG', warn=False)
 
 IND_MAP = {'1': 1, '4': 2, '5': 3}
@@ -58,7 +58,7 @@ class SingleLayer():
     unitary = []
     unitary_trans = []
     for a_i in range(NT):
-      k_a, k_b = K_GRID[a_i]
+      k_a, k_b = K_ARRAY[a_i]
       t_v = np.zeros((3, 3), dtype=complex)
       for b_1 in range(3):
         for b_2 in range(3):
@@ -67,7 +67,7 @@ class SingleLayer():
             i_b = dats[b_1, b_2, i, 1]
             val = dats[b_1, b_2, i, 2]
             t_v[b_1, b_2] += val * np.exp((
-                i_a * k_a + i_b * k_b) * 2. * pi * 1j)
+                i_a * k_a + i_b * k_b) * 1j)
       eigs, eigfun = LA.eigh(t_v)
       idx = eigs.argsort()[::-1]
       eigs = eigs[idx]

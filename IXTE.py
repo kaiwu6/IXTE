@@ -5,12 +5,11 @@ import numpy as np
 #import matplotlib.pyplot as plt
 import BSEquation as BSE
 from tight_binding import band_fitting
-from transport_module import get_band_data, Statistics, correlation
+from transport_module import get_band_data, GetStats, correlation
 from transport_module import thermal_result
-from const import pi, KNUMB, EVALUATION_POINTS, TEMP, NT, KNUMB_TRANS, NT_TRANS
+from const import EVALUATION_POINTS, TEMP, NT_TRANS
 from const import KAPPA_PH
 #matplotlib.use('TkAgg')
-
 
 def main():
   ''' main program: calculate the transportation'''
@@ -39,8 +38,8 @@ def main():
   ex_density = []
   for mu_ in mu_points:
     print("mu: ", mu_)
-    ex_n_1, ex_dn_1 = Statistics.bose_(ix_band1, mu_, TEMP)
-    ex_n_2, ex_dn_2 = Statistics.bose_(ix_band2, mu_, TEMP)
+    ex_n_1, ex_dn_1 = GetStats().bose_(ix_band1, mu_, TEMP)
+    ex_n_2, ex_dn_2 = GetStats().bose_(ix_band2, mu_, TEMP)
     density = (ex_n_1.sum() + ex_n_2.sum()) / NT_TRANS
     print("density: ", density)
 

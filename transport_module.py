@@ -8,11 +8,6 @@ from const import GS, CONDUCT_UNIT, SEEBECK_UNIT, THERMAL_CONDUCT_UNIT
 from const import TEMP, EV, KB
 from basic_tools import gen_energy_terms, gen_velocity_term
 
-# from numpy import linalg as LA
-# from pylab import pcolor
-# from functools import reduce
-# from scipy.optimize import curve_fit
-
 def get_band_data(t_hop):
   '''energy and velocity'''
   energy_terms = gen_energy_terms()
@@ -21,7 +16,8 @@ def get_band_data(t_hop):
   velocity = sum(map(lambda x, y: x*y, t_hop, velocity_terms))
   return energy, velocity
 
-class Statistics():
+class GetStats():
+  '''Femir or Bose'''
   @staticmethod
   def bose_(eng_grid, mu, temp):
     exp_temp = np.exp(-(eng_grid - mu) / temp)

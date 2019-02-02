@@ -1,7 +1,7 @@
 '''some general bascis too'''
 import math
 import numpy as np
-from const import KNUMB_TRANS
+from const import KNUMB_TRANS, KNUMB
 
 PI = math.pi
 cos = np.cos
@@ -35,3 +35,26 @@ def gen_velocity_term():
   term3 = -3.0 * (sin(2.0 * kx + ky) + sin(kx - ky))
   term4 = 3.0 * (sin(-4.0*kx-2.0*ky) - sin(2.0*(kx - ky)))
   return [term0, term1, term2, term3, term4]
+
+def plot_line_short():
+  '''symmetry plot: Gamma -> M -> K'''
+  plot_line = [i for i in range(int(KNUMB / 2))]  # Gamma to M
+  plot_line_2 = list(map(lambda x: 2*KNUMB*x + (int(KNUMB/2)-x),
+                         range(int(KNUMB/6))))  # M to K
+  plot_line_3 = list(map(lambda y: (KNUMB+1) * (int(KNUMB/3)-y),
+                         range(int(KNUMB/3))))  # K to Gamma
+  plot_line.extend(plot_line_2)
+  plot_line.extend(plot_line_3)
+  return plot_line
+
+def plot_line_long():
+  '''long symmetry line: Gamma -> M -> K -> Gamma -> K ->M'''
+  plot_line = plot_line_short()
+  plot_line_4 = list(map(lambda z: (KNUMB + 1) * (KNUMB - z - 1),
+                         range(int(KNUMB/3))))  #Gamma to K'
+  plot_line_5 = list(map(lambda x: KNUMB * (KNUMB * 2/3 - x - 1)
+                         +KNUMB * 2/3 - 4 * (x + 1), range(int(KNUMB / 6))))
+                         #K' to M
+  plot_line.extend(plot_line_4)
+  plot_line.extend(plot_line_5)
+  return plot_line

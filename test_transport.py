@@ -1,10 +1,9 @@
 import numpy as np
 import BSEquation as BSE
 from tight_binding import band_fitting
-from transport_module import TightBindingModel, Statistics, correlation
+from transport_module import TightBindingModel, GetStats, correlation
 from transport_module import thermal_result
 from const import pi, KNUMB, EVALUATION_POINTS, TEMP, NT, KNUMB_TRANS, NT_TRANS
-from const import K_GRID
 
 grid_number = KNUMB_TRANS
 def generate_k_grid(grid_number):
@@ -41,7 +40,7 @@ def main():
   ex_density = []
   for mu_ in mu_points:
     print("mu: ", mu_)
-    ex_n_1, ex_dn_1 = Statistics.fermi_(ex_band_1, mu_, TEMP)
+    ex_n_1, ex_dn_1 = GetStats().fermi_(ex_band_1, mu_, TEMP)
     density = ex_n_1.sum() / NT_TRANS
     print("density: ", density)
     eng_mu_1 = ex_band_1 - mu_

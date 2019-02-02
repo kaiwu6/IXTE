@@ -28,8 +28,13 @@ CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU /
                 UNIT_CELL / EV * EV ** 2) / NT_TRANS
 SEEBECK_UNIT = KB / EV / TEMP
 THERMAL_CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU / UNIT_CELL * KB) / TEMP / NT_TRANS
-# K-Grid for calculation
-K_GRID = [[float(k_x) / KNUMB, float(k_y) / KNUMB] for k_x in range(KNUMB)
-          for k_y in range(KNUMB)]
+
+#K_ARRAY with 2pi for calculation
+#K_ARRAY_NOPI without 2pi for indexing
+K_ARRAY = [[2.0 * pi * k_x / KNUMB, 2.0 * pi * k_y / KNUMB]
+           for k_x in range(KNUMB) for k_y in range(KNUMB)]
+
+K_ARRAY_NOPI = [[float(k_x) / KNUMB, float(k_y) / KNUMB]
+                for k_x in range(KNUMB) for k_y in range(KNUMB)]
 
 EVALUATION_POINTS = 4  #for transport calculation

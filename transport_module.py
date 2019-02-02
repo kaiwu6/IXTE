@@ -4,51 +4,22 @@
 @author: wk
 """
 import numpy as np
-from const import * #pi, KNUMB, GS, CONDUCT_UNIT, SEEBECK_UNIT, THERMAL_CONDUCT_UNIT 
+from const import GS, CONDUCT_UNIT, SEEBECK_UNIT, THERMAL_CONDUCT_UNIT
+from const import TEMP, EV, KB
+from basic_tools import gen_energy_terms, gen_velocity_term
+
 # from numpy import linalg as LA
 # from pylab import pcolor
 # from functools import reduce
 # from scipy.optimize import curve_fit
 
-cos = np.cos
-sin = np.sin
-
-class TightBindingModel():  # need to improve to mesh_grid computation
-  ''' exciton band structure '''
-  def __init__(self, k_grid, t):
-    self.k_grid = k_grid
-    self.t = t
-
-  def cal_energy(self):  # take meshgrid as input
-    kx, ky = self.k_grid
-    term0 = np.full(kx.shape, 1.0)
-    term1 = 2.0 * (cos(kx) + cos(ky) + cos(kx + ky))
-    term2 = 2.0 * (cos(2.0 * kx) + cos(2.0 * ky) + cos(2.0 * (kx + ky)))
-    term3 = 2.0 * (cos(kx + 2.0 * ky) + cos(2.0 * kx + ky) + cos(kx - ky))
-    term4 = 2.0 * (cos(2.0 * kx + 4.0 * ky) + cos(2.0 * ky - 4.0 * (kx + ky))
-                   + cos(2.0 * (kx - ky)))
-    hopping_terms = [term0, term1, term2, term3, term4]
-    return sum(map(lambda x, y: x * y, self.t, hopping_terms))
-
-  '''
-  In the long wavelength limit, the transport is almost isotropic.
-  We can take transport along x-direction without lossing generacity.
-  v_x = dE / dkx
-  '''
-  def cal_velocity(self):
-    kx, ky = self.k_grid
-    term0 = np.zeros(kx.shape)
-    term1 = -2.0 * (sin(kx) + 0.5 * sin(kx + ky) - 0.5 * sin(ky))
-    term2 = -2.0 * (2.0 * sin(2.0 * kx) + sin(2.0 * (kx + ky)) - sin(2.0 * ky))
-    term3 = -3.0 * (sin(2.0 * kx + ky) + sin(kx - ky))
-    term4 = 3.0 * (sin(-4.0*kx-2.0*ky) - sin(2.0*(kx - ky)))
-    velocity_terms = [term0, term1, term2, term3, term4]
-    return sum(map(lambda x, y: x * y, self.t, velocity_terms))
-
-  def get_results(self):
-    band = self.cal_energy()
-    velocity = self.cal_velocity()
-    return band, velocity
+def get_band_data(t_hop):
+  '''energy and velocity'''
+  energy_terms = gen_energy_terms()
+  velocity_terms = gen_velocity_term()
+  energy = sum(map(lambda x, y: x*y, t_hop, energy_terms))
+  velocity = sum(map(lambda x, y: x*y, t_hop, velocity_terms))
+  return energy, velocity
 
 class Statistics():
   @staticmethod
@@ -66,20 +37,22 @@ class Statistics():
     return n, dn
 
 def correlation(eng_mu, velocity, d_density):
+  '''caculate correlations'''
   l0_grid = velocity * velocity * d_density
   l1_grid = eng_mu * l0_grid
   l2_grid = eng_mu * l1_grid
-  l0 = l0_grid.sum()
-  l1 = l1_grid.sum()
-  l2 = l2_grid.sum()
-  return l0, l1, l2
+  cor0 = l0_grid.sum()
+  cor1 = l1_grid.sum()
+  cor2 = l2_grid.sum()
+  return cor0, cor1, cor2
 
-def thermal_result(l0_, l1_, l2_):
-  Lb = (l2_ * l0_ - l1_ * l1_) / (l0_ * l0_ * TEMP ** 2)
-  conduct = l0_ * CONDUCT_UNIT
-  seebeck = l1_ / l0_ * SEEBECK_UNIT
-  thermal_conduct = (l2_ - (l1_ * l1_) / l0_) * THERMAL_CONDUCT_UNIT
-  zT = conduct * seebeck ** 2 * TEMP / \
-  (thermal_conduct + 2.0 * KAPPA_PH) * EV / KB
-  PF = conduct * seebeck ** 2
-  return [Lb, conduct, seebeck, thermal_conduct, zT, PF]
+def thermal_result(cor0, cor1, cor2, kappa_ph):
+  '''get final results'''
+  Lorenz = (cor2 * cor0 - cor1 * cor1) / (cor0 * cor0 * TEMP**2)
+  conduct = cor0 * CONDUCT_UNIT
+  Seebeck = cor1 / cor0 * SEEBECK_UNIT
+  tconduct = (cor2 - (cor1 * cor1) / cor0) * THERMAL_CONDUCT_UNIT
+  zT = conduct * Seebeck ** 2 * TEMP / \
+  (tconduct + 2.0 * kappa_ph) * EV / KB
+  power_factor = conduct * Seebeck ** 2
+  return [Lorenz, conduct, Seebeck, tconduct, zT, power_factor]

@@ -9,10 +9,10 @@ calculate IX bands from BS equations:
 '''
 import numpy as np
 from scipy import linalg as LA
-import matplotlib as mpl
+#import matplotlib as mpl
 import matplotlib.pyplot as plt
 from const import pi, KNUMB, NT, K_GRID, V
-mpl.use('AGG', warn=False)
+#mpl.use('AGG', warn=False)
 
 IND_MAP = {'1': 1, '4': 2, '5': 3}
 class SingleLayer():

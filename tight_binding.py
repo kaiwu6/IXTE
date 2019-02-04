@@ -37,4 +37,3 @@ def band_fitting(data_source):
   popt, _ = curve_fit(band_expansion, KLIST, eng_1d,
                       p0=np.zeros(5), sigma=weight)
   return popt
-  

@@ -178,8 +178,10 @@ class HighSymmetryPlot():
                            #K' to M
     plot_line.extend(plot_line_2)
     plot_line.extend(plot_line_3)
+    print(plot_line)
     plot_line.extend(plot_line_4)
     plot_line.extend(plot_line_5)
+    print(plot_line)
     return plot_line
 
   def __init__(self, number_points, data):
@@ -201,7 +203,6 @@ class HighSymmetryPlot():
     y_max = np.amax([xeng_1, xeng_2]) * 1.05
     a_x.set_ylim((0, y_max))
     a_x.set_xlim((0, num_points-1))
-    plt.show()
     return ans
 
   def plot_one_band_long(self, a_x, xeng_1, xeng_2):

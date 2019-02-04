@@ -4,7 +4,7 @@ This is the script for band calculation only
 import numpy as np
 import BSEquation as BSE
 from tight_binding import band_fitting, band_expansion
-from const import NT, K_ARRAY_NOPI, K_ARRAY
+from const import NT, K_ARRAY_NOPI, K_ARRAY, KNUMB
 from basic_tools import plot_line_long
 import matplotlib
 import matplotlib.pyplot as plt
@@ -48,16 +48,17 @@ def main():
   band2_plot = bands_select[:, 3]
   band1_fit = band_expansion(points_k, *t_1)
   band2_fit = band_expansion(points_k, *t_2)
-
+  print(band1_fit)
   fig, axes = plt.subplots()
+  fig = plt.figure(figsize=(10, 6))
   plt.title('Exciton band at high symmetry lines')
   plt.ylabel('$\epsilon_{ex}$(eV)', fontsize=20)
   axes.get_xaxis().set_visible(False)
-  plt.plot(band1_fit, 'b', markevery=100)
+  plt.plot(band1_fit, 'b')
   plt.plot(band1_plot, 'bo')
   plt.plot(band2_fit, 'r')
   plt.plot(band2_plot, 'rx')
-  plt.axis([0, 12, 0.0, 0.55])
+  plt.axis([0, KNUMB*3/2, -0.01, 0.55])
   plt.savefig("fitting.png")
   plt.show()
   print("completed")

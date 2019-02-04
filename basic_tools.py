@@ -50,13 +50,20 @@ def plot_line_short():
 
 def plot_line_long():
   '''long symmetry line: Gamma -> M -> K -> Gamma -> K ->M'''
-  plot_line = plot_line_short()
+  plot_line = [i for i in range(int(KNUMB / 2))]  # Gamma to M
+  plot_line_2 = list(map(lambda x: 2*KNUMB*x + (int(KNUMB/2)-x),
+                         range(int(KNUMB/6))))  # M to K
+  plot_line_3 = list(map(lambda y: (KNUMB+1) * (int(KNUMB/3)-y),
+                         range(int(KNUMB/3) + 1)))  # K to Gamma
   plot_line_4 = list(map(lambda z: (KNUMB + 1) * (KNUMB - z - 1),
                          range(int(KNUMB/3))))  #Gamma to K'
   plot_line_5 = list(map(lambda x: KNUMB * (KNUMB * 2/3 - x - 1)
                          +KNUMB * 2/3 - 4 * (x + 1), range(int(KNUMB / 6))))
                          #K' to M
+  plot_line.extend(plot_line_2)
+  plot_line.extend(plot_line_3)
   plot_line.extend(plot_line_4)
   plot_line.extend(plot_line_5)
   plot_line = list(map(int, plot_line))
+  print(plot_line)
   return plot_line

@@ -5,7 +5,7 @@ import numpy as np
 GS = 4.0
 KAPPA_PH = 34.0
 TEMP = 0.026  # temperature in EV
-KNUMB = 24
+KNUMB = 6
 KNUMB_TRANS = 144
 NT = KNUMB * KNUMB
 NT_TRANS = KNUMB_TRANS * KNUMB_TRANS

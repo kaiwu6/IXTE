@@ -32,9 +32,9 @@ def main():
   mu_points = list(map(lambda x: -TEMP * np.log(2.0*(1.0+x)),
                        range(EVALUATION_POINTS)))  # -np.log(fugacity)*temp
   print('mu_points:', mu_points)
-  ex_L0 = []
-  ex_L1 = []
-  ex_L2 = []
+  ix_l0 = []
+  ix_l1 = []
+  ix_l2 = []
   ex_density = []
   for mu_ in mu_points:
     print("mu: ", mu_)
@@ -45,14 +45,14 @@ def main():
 
     cor_result1 = correlation(ix_band1-mu_, ix_velocity1, ex_dn_1)
     cor_result2 = correlation(ix_band2-mu_, ix_velocity2, ex_dn_2)
-    ex_L0.append(cor_result1[0] + cor_result2[0])
-    ex_L1.append(cor_result1[1] + cor_result2[1])
-    ex_L2.append(cor_result1[2] + cor_result2[2])
+    ix_l0.append(cor_result1[0] + cor_result2[0])
+    ix_l1.append(cor_result1[1] + cor_result2[1])
+    ix_l2.append(cor_result1[2] + cor_result2[2])
     ex_density.append(density)
 
   # results = list(map(thermal_result, ex_L0, ex_L1, ex_L2))
   results = map(lambda x, y, z: thermal_result(x, y, z, KAPPA_PH),
-                ex_L0, ex_L1, ex_L2)
+                ix_l0, ix_l1, ix_l2)
 
   Lorenz, conduct, seebeck, thermal_conduct, zT, power_factor = list(zip(*results))
   print("Lorenz: ", Lorenz)
@@ -60,6 +60,7 @@ def main():
   print("seebeck: ", seebeck)
   print("conduct: ", conduct)
   print("thermal: ", thermal_conduct)
+  print('power_factor:', power_factor)
   print("compute finished")
 
 if __name__ == "__main__":

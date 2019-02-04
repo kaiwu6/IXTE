@@ -14,13 +14,13 @@ from const import K_ARRAY
 cos = np.cos
 def band_expansion(k, *t):
   '''hopping terms'''
-  x, y = k
+  k_x, k_y = k
   f_test = t[0] \
-    + 2.0*t[1]*(cos(x)+cos(y)+cos(x+y))\
-    + 2.0*t[2]*(cos(2.0*x)+cos(2.0*y)+cos(2.0*(x+y)))\
-    + 2.0*t[3]*(cos((x+2.0*y))+cos((2.0*x+y))+cos((x-y))) \
-    + 2.0*t[4]*(cos(2.0*(x+2.0*y))
-                + cos(2.0*(y-2.0*(x+y)))+cos(2.0*(-(x+y)+2.0*x)))
+    + 2.0*t[1]*(cos(k_x)+cos(k_y)+cos(k_x+k_y))\
+    + 2.0*t[2]*(cos(2.0*k_x)+cos(2.0*k_y)+cos(2.0*(k_x+k_y)))\
+    + 2.0*t[3]*(cos((k_x+2.0*k_y))+cos((2.0*k_x+k_y))+cos((k_x-k_y))) \
+    + 2.0*t[4]*(cos(2.0*(k_x+2.0*k_y))
+                + cos(2.0*(k_y-2.0*(k_x+k_y)))+cos(2.0*(-(k_x+k_y)+2.0*k_x)))
   return f_test
 
 # def band_terms(k_points):
@@ -37,3 +37,10 @@ def band_fitting(data_source):
   popt, _ = curve_fit(band_expansion, KLIST, eng_1d,
                       p0=np.zeros(5), sigma=weight)
   return popt
+
+def main():
+  '''main function'''
+  print('test')
+
+if __name__ == '__main__':
+  main()

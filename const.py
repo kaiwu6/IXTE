@@ -18,7 +18,7 @@ EV = 1.6e-19        #electron unit
 KB = 1.38e-23       #Boltzmann constant
 
 A_LAT = 3.16e-10    #a-axis of MoS2, unit m
-C_LAT = 12.30e-10   #c-axis of MoS2, unit m 
+C_LAT = 12.30e-10   #c-axis of MoS2, unit m
 UNIT_CELL = A_LAT ** 2 * C_LAT * np.sqrt(3.0) / 2.0
 R_TAU = 1.05e-14 * 43.6  # electron*racial
 VELOCITY_UNIT = EV * A_LAT / HBAR / (np.sqrt(3.0) / 2.0)
@@ -27,7 +27,8 @@ VELOCITY_UNIT = EV * A_LAT / HBAR / (np.sqrt(3.0) / 2.0)
 CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU /
                 UNIT_CELL / EV * EV ** 2) / NT_TRANS
 SEEBECK_UNIT = KB / EV / TEMP
-THERMAL_CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU / UNIT_CELL * KB) / TEMP / NT_TRANS
+THERMAL_CONDUCT_UNIT = (VELOCITY_UNIT ** 2 * R_TAU
+                        / UNIT_CELL * KB) / TEMP / NT_TRANS
 
 #K_ARRAY with 2pi for calculation
 #K_ARRAY_NOPI without 2pi for indexing

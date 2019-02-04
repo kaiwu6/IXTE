@@ -1,7 +1,7 @@
 import numpy as np
 import BSEquation as BSE
 from tight_binding import band_fitting
-from transport_module import TightBindingModel, GetStats, correlation
+from transport_module import get_band_data, GetStats, correlation
 from transport_module import thermal_result
 from const import pi, KNUMB, EVALUATION_POINTS, TEMP, NT, KNUMB_TRANS, NT_TRANS
 
@@ -28,7 +28,7 @@ def main():
   print("start to calculate the transportations")
 
   k_grid = generate_k_grid(grid_number)
-  band_1 = TightBindingModel(k_grid, t_1)
+  band_1 = get_band_data(t_1)
   ex_band_1, ex_velocity_1 = band_1.get_results()
   print(ex_band_1.shape)
 # Prepare evaluation points for the thermal coefficient:

@@ -12,7 +12,7 @@ from const import KAPPA_PH
 #matplotlib.use('TkAgg')
 
 def main():
-  ''' main program: calculate the transportation'''
+  '''main program: calculate the transportation'''
   print('link start')
   dir_mos2 = '/Users/wk/Dropbox/2015rp/TMDC_Exciton/Tight-binding Model/MoS2/'
   seedname = 'MoS2'
@@ -54,8 +54,8 @@ def main():
   results = map(lambda x, y, z: thermal_result(x, y, z, KAPPA_PH),
                 ex_L0, ex_L1, ex_L2)
 
-  Lb, conduct, seebeck, thermal_conduct, zT, PF = list(zip(*results))
-  print("Lb: ", Lb)
+  Lorenz, conduct, seebeck, thermal_conduct, zT, power_factor = list(zip(*results))
+  print("Lorenz: ", Lorenz)
   print("zT: ", zT)
   print("seebeck: ", seebeck)
   print("conduct: ", conduct)

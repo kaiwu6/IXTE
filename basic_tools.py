@@ -45,6 +45,7 @@ def plot_line_short():
                          range(int(KNUMB/3))))  # K to Gamma
   plot_line.extend(plot_line_2)
   plot_line.extend(plot_line_3)
+  plot_line = list(map(int, plot_line))
   return plot_line
 
 def plot_line_long():
@@ -57,4 +58,5 @@ def plot_line_long():
                          #K' to M
   plot_line.extend(plot_line_4)
   plot_line.extend(plot_line_5)
+  plot_line = list(map(int, plot_line))
   return plot_line

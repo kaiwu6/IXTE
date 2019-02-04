@@ -219,7 +219,7 @@ class HighSymmetryPlot():
     y_max = np.amax([xeng_1, xeng_2]) * 1.05
     a_x.set_ylim((0, y_max))
     a_x.set_xlim((0, num_points-1))
-    plt.show()
+    #plt.show()
     return ans
 
 def tight_binding(xeng):

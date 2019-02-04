@@ -4,7 +4,7 @@ This is the script for band calculation only
 import numpy as np
 import BSEquation as BSE
 from tight_binding import band_fitting, band_expansion
-from const import NT, KNUMB, K_ARRAY_NOPI
+from const import NT, K_ARRAY_NOPI, K_ARRAY
 from basic_tools import plot_line_long
 import matplotlib
 import matplotlib.pyplot as plt
@@ -22,7 +22,7 @@ def main():
   dir_mos2 = '/Users/wk/Dropbox/2015rp/TMDC_Exciton/Tight-binding Model/MoS2/'
   seedname = 'MoS2'
   ix_band_1, ix_band_2 = BSE.compute_ixbands(dir_mos2, seedname)
-  dump_energy_data(ix_band_1, ix_band_2)
+  dump_energy_data(ix_band_1, ix_band_2) #save data to file
 
   print('start plot')
   fig1 = plt.figure(figsize=(10, 6))
@@ -30,8 +30,8 @@ def main():
   new_plot = BSE.HighSymmetryPlot(NT, 1)
   new_plot.plot_one_band_long(a_x, ix_band_1, ix_band_2)
   plt.savefig('band.png')
-  plt.show()
-  
+  #plt.show()
+
   #Start to band fitting
   t_1 = band_fitting(ix_band_1)
   t_2 = band_fitting(ix_band_2)
@@ -39,11 +39,27 @@ def main():
   np.savetxt("t_1.dat", t_1)
   np.savetxt("t_2.dat", t_2)
 
+  bands = np.loadtxt("bands.dat")
   plot_points = plot_line_long()
-  band1_fit = band_expansion(plot_points, *t_1)
-  band2_fit = band_expansion(plot_points, *t_2)
-  
-  
+  bands_select = bands[plot_points]
+  points_k = [K_ARRAY[i] for i in plot_points]
+  points_k = np.transpose(points_k)
+  band1_plot = bands_select[:, 2]
+  band2_plot = bands_select[:, 3]
+  band1_fit = band_expansion(points_k, *t_1)
+  band2_fit = band_expansion(points_k, *t_2)
+
+  fig, axes = plt.subplots()
+  plt.title('Exciton band at high symmetry lines')
+  plt.ylabel('$\epsilon_{ex}$(eV)', fontsize=20)
+  axes.get_xaxis().set_visible(False)
+  plt.plot(band1_fit, 'b', markevery=100)
+  plt.plot(band1_plot, 'bo')
+  plt.plot(band2_fit, 'r')
+  plt.plot(band2_plot, 'rx')
+  plt.axis([0, 12, 0.0, 0.55])
+  plt.savefig("fitting.png")
+  plt.show()
   print("completed")
 
 if __name__ == "__main__":

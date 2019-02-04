@@ -24,7 +24,7 @@ def band_expansion(k, *t):
   return f_test
 
 # def band_terms(k_points):
-k_list= np.c_[K_ARRAY]
+KLIST = np.transpose(K_ARRAY)
 def band_fitting(data_source):
   '''curve fitting to get the hopping'''
   if isinstance(data_source, str):
@@ -34,7 +34,7 @@ def band_fitting(data_source):
     eng_1d = data_source
   #eng_2d = eng_1d.reshape(KNUMB, KNUMB)
   weight = data_source + 1e-5
-  popt, _ = curve_fit(band_expansion, k_list, eng_1d,
+  popt, _ = curve_fit(band_expansion, KLIST, eng_1d,
                       p0=np.zeros(5), sigma=weight)
   return popt
   

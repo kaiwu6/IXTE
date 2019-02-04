@@ -1,6 +1,6 @@
 '''transport only'''
 import numpy as np
-from transport_module import TightBindingModel, Get_Stats(), correlation
+from transport_module import get_band_data, GetStats, correlation
 from transport_module import thermal_result
 from const import pi, NT_TRANS, KNUMB_TRANS, TEMP
 import matplotlib
@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')
 
 EVALUATION_POINTS = 20
-
 
 grid_num = NT_TRANS
 def gen_grid(grid_num):
@@ -34,28 +33,24 @@ def main():
   t_2 = laod_data_from_file(file2)
 
   k_grid = gen_grid(grid_num)
-  band_1 = TightBindingModel(k_grid, t_1)
-  band_2 = TightBindingModel(k_grid, t_2)
-  ix_band_1, ix_velocity_1 = band_1.get_results()
-  ix_band_2, ix_velocity_2 = band_2.get_results()
+  ix_band1, ix_velocity1 = get_band_data(t_1)
+  ix_band2, ix_velocity2 = get_band_data(t_2)
 
   mu_points = prepare_mu_points(EVALUATION_POINTS)
   for mu_ in mu_points:
     print("mu: ", mu_)
-    ix_n_1, ix_dn_1 = GetStats().bose_(ix_band_1, mu_, TEMP)
-    ix_n_2, ix_dn_2 = GetStats().bose_(ix_band_2, mu_, TEMP)
+    ix_n_1, ix_dn_1 = GetStats.bose_(ix_band1, mu_, TEMP)
+    ix_n_2, ix_dn_2 = GetStats.bose_(ix_band2, mu_, TEMP)
     ix_density = (ix_n_1.sum() + ix_n_2.sum()) / NT_TRANS
     print("density: ", ix_density)
-    eng_mu_1 = ix_band_1 - mu_
-    eng_mu_2 = ix_band_2 - mu_
 
-  ix_correlation_1 = correlation(eng_mu_1, ix_velocity_1, ix_dn_1)
-  ix_correlation_2 = correlation(eng_mu_2, ix_velocity_2, ix_dn_2)
+    ix_correlation_1 = correlation(ix_band1 - mu_, ix_velocity1, ix_dn_1)
+    ix_correlation_2 = correlation(ix_band2 - mu_, ix_velocity2, ix_dn_2)
 
   ix_correlation = list(map(lambda x, y: x + y, ix_correlation_1, ix_correlation_2))
 
   results = map(thermal_result, ix_correlation)
-  [Lorenz, conduct, seebeck, thermal_conduct, zT, PF] = list(zip(*results))[:6]
+  [Lorenz, conduct, seebeck, thermal_conduct, zT, power_factor] = list(zip(*results))[:6]
   print("Lb: ", Lorenz)
   print("zT: ", zT)
   print("seebeck: ", seebeck)
@@ -92,7 +87,7 @@ def main():
 
   ax2 = ax1.twinx()
   ax2.set_xlim([1.e-3, 1.2e-1])
-  ax2.semilogx(ix_density, PF, 'b-')
+  ax2.semilogx(ix_density, power_factor, 'b-')
   ax2.set_ylabel('PF')
   plt.show()
 

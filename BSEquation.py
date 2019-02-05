@@ -9,9 +9,9 @@ calculate IX bands from BS equations:
 '''
 import numpy as np
 from scipy import linalg as LA
-#import matplotlib as mpl
 import matplotlib.pyplot as plt
 from const import pi, KNUMB, NT, K_ARRAY, V
+from basic_tools import plot_line_long, plot_line_short
 #mpl.use('AGG', warn=False)
 
 IND_MAP = {'1': 1, '4': 2, '5': 3}
@@ -153,44 +153,13 @@ def fourier_trans(xfun_1):
 
 class HighSymmetryPlot():
   '''HighSymmetryPlot'''
-  def plot_line_gen(self):
-    '''plot line'''
-    plot_line = [i for i in range(int(KNUMB / 2))]  # Gamma to M
-    plot_line_2 = list(map(lambda x: 2*KNUMB*x + (int(KNUMB/2)-x),
-                           range(int(KNUMB/6))))  # M to Kbb
-    plot_line_3 = list(map(lambda y: (KNUMB+1) * (int(KNUMB/3)-y),
-                           range(int(KNUMB/3))))  # K to Gamma
-    plot_line.extend(plot_line_2)
-    plot_line.extend(plot_line_3)
-    return plot_line
-
-  def plot_line_gen_long(self):
-    ''' long plot '''
-    plot_line = [i for i in range(int(KNUMB / 2))]  # Gamma to M
-    plot_line_2 = list(map(lambda x: 2 * KNUMB * x + (int(KNUMB/2) - x),
-                           range(int(KNUMB / 6))))  # M to K
-    plot_line_3 = list(map(lambda y: (KNUMB + 1) * (int(KNUMB / 3) - y),
-                           range(int(KNUMB / 3)+1)))  # K to Gamma
-    plot_line_4 = list(map(lambda z: (KNUMB + 1) * (KNUMB - z - 1),
-                           range(int(KNUMB/3))))  #Gamma to K'
-    plot_line_5 = list(map(lambda x: KNUMB * (KNUMB * 2/3 - x - 1)
-                           +KNUMB * 2/3 - 4 * (x + 1), range(int(KNUMB / 6))))
-                           #K' to M
-    plot_line.extend(plot_line_2)
-    plot_line.extend(plot_line_3)
-    print(plot_line)
-    plot_line.extend(plot_line_4)
-    plot_line.extend(plot_line_5)
-    print(plot_line)
-    return plot_line
-
   def __init__(self, number_points, data):
     self.number_points = number_points
     self.data = data
 
   def plot_one_band(self, a_x, xeng_1, xeng_2):
     ''' band plot one '''
-    plot_line = self.plot_line_gen()
+    plot_line = plot_line_short()
     num_points = len(plot_line)
     ans = 0
     for a_i in range(num_points):
@@ -207,7 +176,7 @@ class HighSymmetryPlot():
 
   def plot_one_band_long(self, a_x, xeng_1, xeng_2):
     '''band plot long'''
-    plot_line = self.plot_line_gen_long()
+    plot_line = plot_line_long()
     num_points = len(plot_line)
     ans = 0
     for a_i in range(num_points):

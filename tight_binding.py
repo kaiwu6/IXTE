@@ -3,13 +3,9 @@
 Created on Thu Feb 11 19:31:19 2016
 @author: wk
 """
-#from functools import reduce
 import numpy as np
-# import matplotlib.pyplot as plt
-# from matplotlib import rc
 from scipy.optimize import curve_fit
 from const import K_ARRAY
-#from BSEquation import *
 
 cos = np.cos
 def band_expansion(k, *t):
@@ -23,24 +19,24 @@ def band_expansion(k, *t):
                 + cos(2.0*(k_y-2.0*(k_x+k_y)))+cos(2.0*(-(k_x+k_y)+2.0*k_x)))
   return f_test
 
-# def band_terms(k_points):
-KLIST = np.transpose(K_ARRAY)
 def band_fitting(data_source):
   '''curve fitting to get the hopping'''
-  if isinstance(data_source, str):
-    ka_kb_eng = np.loadtxt(data_source)
-    eng_1d = ka_kb_eng[:, 2]
-  else:
-    eng_1d = data_source
-  #eng_2d = eng_1d.reshape(KNUMB, KNUMB)
+  k_list = np.transpose(K_ARRAY)
+  eng_1d = data_source
   weight = data_source + 1e-5
-  popt, _ = curve_fit(band_expansion, KLIST, eng_1d,
+  popt, _ = curve_fit(band_expansion, k_list, eng_1d,
                       p0=np.zeros(5), sigma=weight)
   return popt
 
 def main():
-  '''main function'''
-  print('test')
+  '''use method to load data from file'''
+  bands = np.loadtxt('bands.dat')
+  band1 = bands[:, 2]
+  band2 = bands[:, 3]
+  t_1 = band_fitting(band1)
+  t_2 = band_fitting(band2)
+  print('t_1: ', t_1)
+  print('t_2: ', t_2)
 
 if __name__ == '__main__':
   main()

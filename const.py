@@ -11,7 +11,8 @@ NT = KNUMB * KNUMB
 NT_TRANS = KNUMB_TRANS * KNUMB_TRANS
 
 pi = math.pi
-V = 0.1 / NT
+V = 0.17 / NT
+# 7 layers of hBN: 2.3nm, dielectric const 3.7
 
 HBAR = 1.05e-34     #Planck constant
 EV = 1.6e-19        #electron unit
